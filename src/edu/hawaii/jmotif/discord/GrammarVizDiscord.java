@@ -26,13 +26,7 @@ import edu.hawaii.jmotif.gi.GrammarRules;
 import edu.hawaii.jmotif.gi.sequitur.SequiturFactory;
 import edu.hawaii.jmotif.grammarviz.logic.CoverageCountStrategy;
 import edu.hawaii.jmotif.logic.RuleInterval;
-import edu.hawaii.jmotif.sax.LargeWindowAlgorithm;
 import edu.hawaii.jmotif.sax.NumerosityReductionStrategy;
-import edu.hawaii.jmotif.sax.SAXFactory;
-import edu.hawaii.jmotif.sax.datastructures.DiscordRecords;
-import edu.hawaii.jmotif.sax.trie.TrieException;
-import edu.hawaii.jmotif.timeseries.TSException;
-import edu.hawaii.jmotif.timeseries.TSUtils;
 import edu.hawaii.jmotif.util.StackTrace;
 
 /**
@@ -192,8 +186,7 @@ public class GrammarVizDiscord {
 
   }
 
-  private static void findSaxSequitur(CoverageCountStrategy strategy) throws IOException,
-      TSException {
+  private static void findSaxSequitur(CoverageCountStrategy strategy) throws IOException, Exception {
 
     consoleLogger.info("running SAXSequitur algorithm...");
     Date start = new Date();
@@ -355,7 +348,7 @@ public class GrammarVizDiscord {
     return res;
   }
 
-  private static void findHotSax() throws TrieException, TSException {
+  private static void findHotSax() throws TrieException, Exception {
     consoleLogger.info("running HOT SAX Trie-based algorithm...");
 
     Date start = new Date();
@@ -369,7 +362,7 @@ public class GrammarVizDiscord {
 
   }
 
-  private static void findHotSaxWithHash() throws TrieException, TSException {
+  private static void findHotSaxWithHash() throws TrieException, Exception {
     consoleLogger.info("running HOT SAX Hash-based algorithm...");
 
     Date start = new Date();
@@ -386,9 +379,9 @@ public class GrammarVizDiscord {
   /**
    * Procedure of finding brute-force discords.
    * 
-   * @throws TSException
+   * @throws Exception
    */
-  private static void findBruteForce() throws TSException {
+  private static void findBruteForce() throws Exception {
 
     consoleLogger.info("running brute force algorithm...");
 
